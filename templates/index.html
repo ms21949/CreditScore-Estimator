@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Score Estimator</title>
+</head>
+<body>
+    <h1>Credit Score Estimator</h1>
+    
+<form method="post" action="/predict">
+ 
+<form id="make_checkbox_select">
+
+  <label>Credit Mix</label><br><br>
+  <select name="Credit_Mix">
+      <option data-count="0" value=0>Bad</option>
+      <option data-count="1" value=1>Standard</option>
+      <option data-count="2" value=2>Good</option>
+  </select>
+  <br><br>
+
+  <label>Payment Behaviour</label><br><br>
+  <select name="Payment_Behviour">
+    <option data-count="0" value=0>High spent Small value payments</option>
+    <option data-count="1" value=1>Low spent Large value payments</option>
+    <option data-count="2" value=2>Low_spent_Medium_value_payments</option>
+    <option data-count="3" value=3>Low_spent_Small_value_payments</option>
+    <option data-count="4" value=4>High_spent_Medium_value_payments</option>
+    <option data-count="5" value=5>High_spent_Large_value_payments</option>
+  </select>
+  <br><br>
+
+  <label>Payment of Minimum Amount</label><br><br>
+  <select name="Payment_of_Min_Amount">
+    <option data-count="0" value=0>No</option>
+    <option data-count="1" value=1>NM</option>
+    <option data-count="2" value=2>Yes</option>
+  </select>
+  <br><br>
+  
+  <label>Occupation</label><br><br>
+  <select name="Occupation">
+    <option data-count="0" value=0>Scientist</option>
+    <option data-count="1" value=1>Teacher</option>
+    <option data-count="2" value=2>Engineer</option>
+    <option data-count="3" value=3>Entrepreneur</option>
+    <option data-count="4" value=4>Developer</option>
+    <option data-count="5" value=5>Lawyer</option>
+    <option data-count="6" value=6>Media_Manager</option>
+    <option data-count="7" value=7>Doctor</option>
+    <option data-count="8" value=8>Journalist</option>
+    <option data-count="9" value=9>Manager</option>
+    <option data-count="10" value=10>Accountant</option>
+    <option data-count="11" value=11>Musician</option>
+    <option data-count="9" value=12>Mechanic</option>
+    <option data-count="10" value=13>Writer</option>
+    <option data-count="11" value=14>Architect</option>
+  </select>
+  <br><br>
+    
+  <input type="submit" value="Predict"><br><br>
+</form>
+
+
+
+</form>
+
+{% if result %}
+    <p>{{ result }}</p>
+{% endif %} 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script>
+
+	$(function()
+	{
+		var mySelectCheckbox = new checkbox_select(
+		{
+			selector : "#make_checkbox_select",
+            selected_translation : "selectat",
+            all_translation : "Toate marcile",
+            not_found : "Nici unul gasit",
+
+			// Event during initialization
+			onApply : function(e)
+			{
+                alert("Custom Event: " + e.selected);
+			}
+		});
+  
+	});
+		
+</script>
+
+
+</body>
+</html>
