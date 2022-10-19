@@ -1,5 +1,4 @@
 flask
-python3
 numpy
 scikit-learn
 matplotlib
