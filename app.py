@@ -4,6 +4,7 @@ import numpy as np
 import sklearn
 from flask import request
 
+
 model = pickle.load(open('rf-model.pkl','rb'))
 app = Flask(__name__)
 
