@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import sklearn
 from flask import request
+from waitress import serve
 
 
 model = pickle.load(open('rf-model.pkl','rb'))
@@ -33,4 +34,5 @@ def predict_Investment():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    serve(app, host="0.0.0.0", port=8080)
+    
